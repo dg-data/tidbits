@@ -1,0 +1,23 @@
+channels:
+  - pyviz
+  - conda-forge
+  - defaults
+dependencies:
+  - geopandas
+  - folium
+  - altair
+  - notebook
+  - vega
+  - pyviz::param
+  - pyviz::datashader
+  - pyviz::holoviews
+  - pyviz::geoviews
+  - pyviz::hvplot
+  - bokeh::bokeh
+  - pyviz::panel
+  - fastparquet
+  - python-snappy
+  - numpy
+  - pip
+  - pip:
+      - jupyter-panel-proxy
