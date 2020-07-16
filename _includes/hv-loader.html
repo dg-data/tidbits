@@ -19,7 +19,7 @@
       if (el===null)
         alert("Error: cannot embed HTML chart because the div element with id '{{ chart[0] }}' does not exist.")
       let spec = "{{ site.baseurl }}/{{ chart[1] }}";
-      el.innerHTML = `<iframe width="100%" scrolling="no" frameborder="0" id="_iframe" src="${spec}" onload="resizeIframe(this)">
+      el.innerHTML = `<iframe width="100%" scrolling="no" frameborder="0" id="_iframe" src="${spec}">
         <script>
           setInterval(function() {
     // first parameter is the message to be passed
