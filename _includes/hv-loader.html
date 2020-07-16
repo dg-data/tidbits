@@ -1,12 +1,15 @@
 {% comment %} Load HTML files into an Iframe {% endcomment %}
 
 <script>
-  function resizeIframe(obj) {
-    let body = obj.contentWindow.document.body, html = obj.contentWindow.document.documentElement;
-    let height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-    if (height == 0) height = 500;
-    obj.style.height = height + "px";
+  window.onmessage = (e) => {
+
+  if (e.data.hasOwnProperty("frameHeight")) {
+
+    document.getElementById("_iframe").style.height = `${e.data.frameHeight + 30}px`;
+
   }
+
+};
 </script>
 
 <script type="text/javascript">
@@ -16,7 +19,17 @@
       if (el===null)
         alert("Error: cannot embed HTML chart because the div element with id '{{ chart[0] }}' does not exist.")
       let spec = "{{ site.baseurl }}/{{ chart[1] }}";
-      el.innerHTML = `<iframe width="100%" scrolling="no" frameborder="0" src="${spec}" onload="resizeIframe(this)"></iframe>`;
+      el.innerHTML = `<iframe width="100%" scrolling="no" frameborder="0" id="_iframe" src="${spec}" onload="resizeIframe(this)">
+        <script>
+          setInterval(function() {
+    // first parameter is the message to be passed
+    // second paramter is the domain of the parent 
+    // in this case "*" has been used for demo sake (denoting no preference)
+    // in production always pass the target domain for which the message is intended 
+            window.top.postMessage(document.body.scrollHeight, "*");
+          }, 500); 
+        </script>
+      </iframe>`;
     });
   {% endfor %}
 </script>
