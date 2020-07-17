@@ -1,11 +1,10 @@
 {% comment %} Load HTML files into an Iframe {% endcomment %}
 
 <script>
-  window.onmessage = (e) => {
-    if (e.data.hasOwnProperty("frameHeight")) {
-      document.getElementById("_iframe").style.height = `${e.data.frameHeight + 30}px`;
-    }
-  };
+  window.addEventListener('message', (e) => {
+    var scroll_height = e.data;
+    document.getElementById('_iframe').style.height = scroll_height + 'px'; 
+  } , false);
 </script>
 
 <script type="text/javascript">
