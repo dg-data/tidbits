@@ -15,7 +15,7 @@ dependencies:
   - pyviz::hvplot
   - bokeh::bokeh
   - pyviz::panel
-  - fastparquet
+  - xlrd
   - python-snappy
   - numpy
   - pip
