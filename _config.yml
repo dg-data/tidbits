@@ -292,5 +292,3 @@ defaults:
       author_profile: true      
 
 theme: jekyll-theme-tactile
-header:
-  image: /assets/images/banner-982162_1280.jpg
