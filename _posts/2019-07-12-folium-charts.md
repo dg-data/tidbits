@@ -5,7 +5,7 @@ published: true
 tags: [dataviz, folium]
 excerpt: "Embedding interactive Folium chart on static page using Jekyll."
 folium-loader:
-  folium-chart-1: ["charts/covidmap.html", "1200"]
+  folium-chart-1: ["charts/covidmap.html", "800"]
 custom-css-list:
   - "assets/css/leaflet.timedimension.control.min.css"
 toc: false
