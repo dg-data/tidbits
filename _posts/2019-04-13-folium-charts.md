@@ -1,11 +1,11 @@
 ---
-title: "Example: Embedding Folium charts"
+title: "Example: Embedding Folium map"
 date: 2020-07-12
 published: true
 tags: [dataviz, folium]
 excerpt: "Embedding interactive Folium chart on static page using Jekyll."
 folium-loader:
-  folium-chart-1: ["charts/percent_no_internet.html", "400"]
+  folium-chart-1: ["charts/covidmap.html", "1200"]
 custom-css-list:
   - "assets/css/leaflet.timedimension.control.min.css"
 toc: true
@@ -14,7 +14,7 @@ toc_sticky: true
 
 This post will show an example of embedding interactive maps.
 
-## Percentage of Households without Internet
+## New cases in Hungary per 100 000 population by week
 
 <div id="folium-chart-1"></div>
 
