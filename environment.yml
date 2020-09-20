@@ -18,6 +18,7 @@ dependencies:
   - xlrd
   - python-snappy
   - numpy
+  - beautifulsoup4
   - pip
   - pip:
       - jupyter-panel-proxy
