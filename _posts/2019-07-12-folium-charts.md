@@ -10,6 +10,7 @@ custom-css-list:
   - "assets/css/leaflet.timedimension.control.min.css"
 toc: true
 toc_sticky: true
+classes: wide
 ---
 
 This post will show an example of embedding interactive maps.
