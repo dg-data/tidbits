@@ -8,7 +8,7 @@ folium-loader:
   folium-chart-1: ["charts/covidmap.html", "1200"]
 custom-css-list:
   - "assets/css/leaflet.timedimension.control.min.css"
-toc: true
+toc: false
 toc_sticky: true
 classes: wide
 ---
