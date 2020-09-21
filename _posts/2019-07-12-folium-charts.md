@@ -68,7 +68,7 @@ sub.drop(sub[sub['nuts_code'].str[:2] != country].index, inplace=True)
 # List of region codes in the country
 nuts = list(sub.nuts_code.value_counts().index)
 ```
-Plot the time series of the selected countries.
+Plot the time series of the selected countries using Bokeh.
 ```python
 def chart_countries(event):
     countries = country_select.value[:10]
