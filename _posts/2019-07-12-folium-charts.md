@@ -3,16 +3,14 @@ title: "Example: Embedding Folium map"
 date: 2020-07-12
 published: true
 tags: [dataviz, folium]
-excerpt: "Embedding interactive Folium chart on static page using Jekyll."
+excerpt: "Embedding interactive Folium map on static page"
 folium-loader:
   folium-chart-1: ["charts/covidmap.html", "800"]
-custom-css-list:
-  - "assets/css/leaflet.timedimension.control.min.css"
 toc: false
 toc_sticky: true
 classes: wide
 ---
-
+Folium is built on the Leaflet javascript library, which is the leading open-source mapping library and a great tool for creating interactive web maps. In this example I demonstrate the workflow using GeoPandas and Folium that makes it easy to create functional web maps in Python. The map below is integrated into a Panel app that shows up to date European COVID data about new cases and deaths. The charts contain national level information from the countri(es) selected. On the interactive map of Hungary we can follow the weekly regional distribution of new cases. The darker tones indicate more people infected.
 ```python
 import numpy as np
 import pandas as pd
