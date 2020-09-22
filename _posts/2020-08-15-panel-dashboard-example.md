@@ -1,5 +1,5 @@
 ---
-{% assign title = nil %}
+{% assign header.overlay_color = "" %}
 altair-loader:
   altair-chart-2: "charts/panelAltair.json"
 hv-loader:
