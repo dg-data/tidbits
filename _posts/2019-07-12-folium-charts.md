@@ -7,7 +7,7 @@ excerpt: "Embedding interactive Folium map on static page"
 folium-loader:
   folium-chart-1: ["charts/covidmap.html", "800"]
 hv-loader:
-  hv-chart-1: "charts/covidBokeh.html"
+  hv-chart-1: ["charts/covidBokeh.html", "600"]
 toc: false
 toc_sticky: true
 classes: wide
