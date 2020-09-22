@@ -1,5 +1,5 @@
 ---
-title: "Example: Embedding Folium map"
+title: "Embedding Folium map into a Bokeh application"
 date: 2020-07-12
 published: true
 tags: [dataviz, folium]
