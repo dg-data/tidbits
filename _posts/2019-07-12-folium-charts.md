@@ -3,7 +3,6 @@ title: "Example: Embedding Folium map"
 date: 2020-07-12
 published: true
 tags: [dataviz, folium]
-excerpt: "Embedding interactive Folium map on static page"
 folium-loader:
   folium-chart-1: ["charts/covidmap.html", "800"]
 hv-loader:
@@ -101,6 +100,7 @@ def chart_countries:
     chart.toolbar.logo = None
     return chart
 ```
+A choropleth map displays divided regions that are coloured in relation to a numeric variable. It allows to study how a variable evolutes along a territory. This time the variable is the number of new COVID cases in Hungary per 100 000 population. The size of the circle inside each region also indicates the value of this variable. The map is not about the absolute numbers but the proportions and the evolution of the outbreak. 
 ```python
 def plot_map():
     m = folium.Map(location=[48,19], zoom_start=7.5, tiles=None, overlay=False)
@@ -164,5 +164,5 @@ app = pn.Column(
 app.servable()
 ```
 <div id="hv-chart-1"></div>
-### New cases in Hungary per 100 000 population by week
+#### New cases in Hungary per 100 000 population by week
 <div id="folium-chart-1"></div>
