@@ -290,5 +290,10 @@ defaults:
     values:
       layout: single
       author_profile: true      
+  - scope:
+      path: ""
+      layout: aingle
+    values:
+      strip_title: true
 
 theme: jekyll-theme-tactile
