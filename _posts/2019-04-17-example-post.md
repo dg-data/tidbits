@@ -1,14 +1,15 @@
 ---
+titles_from_headings:
+  enabled:     true
+  strip_title: false
 date: 2020-07-12
 published: true
-tags: 
-excerpt: "This is an example blog post"
 toc: true
 toc_sticky: true
 ---
 # Heading
 
-This is an example post.
+This is an example image.
 
 ## Example image
 
