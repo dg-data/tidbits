@@ -3,7 +3,11 @@
 <script>
   window.addEventListener('message', (e) => {
     var scroll_height = e.data;
-    document.getElementById('_iframe').style.height = scroll_height + 'px'; 
+    var _iframe = document.getElementById('_iframe');
+    _iframe.style.height = scroll_height + 'px';
+    _iframe.style.height = _iframe.contentWindow.document.body.scrollHeight;
+}
+
   } , false);
 </script>
 
