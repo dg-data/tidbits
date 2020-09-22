@@ -6,9 +6,7 @@ altair-loader:
 hv-loader:
   hv-chart-1: ["charts/panelBokeh.html","440"]
 ---
-
 ## Dashboard with Panel using Datashader and Altair (Python libraries)
-
 
 Panel is a tool for dashboarding in Python. Combines the computational power of Python with the interactivity of the modern web. Panel adds full bidirectional communication between Python and JavaScript. Supports live code in a Jupyter notebook and deploying the same code to a server. Also provides support for Datashader with visualizing large datasets. 
 {: style="text-align: justify" }
