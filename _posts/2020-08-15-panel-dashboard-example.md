@@ -1,6 +1,6 @@
 ---
-header:
-  overlay_color: ""
+titles_from_headings:
+  strip_title: true
 altair-loader:
   altair-chart-2: "charts/panelAltair.json"
 hv-loader:
