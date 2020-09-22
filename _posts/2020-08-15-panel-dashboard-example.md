@@ -1,5 +1,5 @@
 ---
-title: nil
+{% assign title = nil %}
 altair-loader:
   altair-chart-2: "charts/panelAltair.json"
 hv-loader:
