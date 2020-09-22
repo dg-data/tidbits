@@ -161,9 +161,6 @@ app = pn.Column(
 ```python
 app.servable()
 ```
-
-## New cases in Hungary per 100 000 population by week
-
+<div id="hv-chart-1"></div>
+### New cases in Hungary per 100 000 population by week
 <div id="folium-chart-1"></div>
-
-
