@@ -1,5 +1,6 @@
 ---
-{% assign header.overlay_color = "" %}
+header:
+  overlay_color: ""
 altair-loader:
   altair-chart-2: "charts/panelAltair.json"
 hv-loader:
