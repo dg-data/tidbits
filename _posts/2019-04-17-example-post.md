@@ -1,7 +1,7 @@
 ---
 titles_from_headings:
   enabled:     true
-  strip_title: false
+  strip_title: true
 date: 2020-07-12
 published: true
 toc: true
