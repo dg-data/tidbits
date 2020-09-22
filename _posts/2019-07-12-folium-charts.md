@@ -100,7 +100,8 @@ def chart_countries:
     chart.toolbar.logo = None
     return chart
 ```
-A choropleth map displays divided regions that are coloured in relation to a numeric variable. It allows to study how a variable evolutes along a territory. This time the variable is the number of new COVID cases in Hungary per 100 000 population. The size of the circle inside each region also indicates the value of this variable. The map is not about the absolute numbers but the proportions and the evolution of the outbreak. 
+A choropleth map displays divided regions that are coloured in relation to a numeric variable. It allows to study how a variable evolutes along a territory. This time the variable is the number of new COVID cases in Hungary per 100 000 population. The size of the circle inside each region also indicates the value of this variable. The map is not about the absolute numbers but the proportions and the evolution of the outbreak.
+{: style="text-align: justify" }
 ```python
 def plot_map():
     m = folium.Map(location=[48,19], zoom_start=7.5, tiles=None, overlay=False)
@@ -160,9 +161,10 @@ app = pn.Column(
   map_pane
 )
 ```
+The chart below is a static snapshot, the live version available on Binder. _(It starts slowly because of preparing the environment for running)_.
 ```python
 app.servable()
 ```
 <div id="hv-chart-1"></div>
-#### New cases in Hungary per 100 000 population by week
+#### New cases in Hungary per 100 000 population by week (interactive)
 <div id="folium-chart-1"></div>
