@@ -1,5 +1,5 @@
 ---
-title: "Embedding Folium map into a Bokeh application"
+title: "Embedding interactive Folium map into a Bokeh application"
 date: 2020-07-12
 tags: [dataviz, folium]
 folium-loader:
