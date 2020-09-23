@@ -7,7 +7,7 @@ folium-loader:
 hv-loader:
   hv-chart-1: ["charts/covidBokeh.html", "620"]
 titles_from_headings:
-  strip_title: true
+  strip_title: false
 toc: false
 toc_sticky: true
 classes: wide
