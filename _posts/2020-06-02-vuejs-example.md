@@ -3,8 +3,9 @@ title: "Displaying NBA boxscores with Vue.js"
 date: 2020-06-02
 published: true
 tags: [vue.js, api]
-toc: true
+toc: false
 toc_sticky: true
+classes: wide
 ---
 This example shows how to fetch data from an API endpoint in Vue.js apps by using axios http library and display results. The API returns details about the NBA game selected which is presented in traditional box format. The app itself a single file component with
 - HTML template
@@ -13,7 +14,7 @@ This example shows how to fetch data from an API endpoint in Vue.js apps by usin
 
 When webpack, which is a static module bundler for modern SPAs processes the app, it builds modules in one or more bundles with a single command to run the entire application. Below is the code in Vue.js.
 
-#### CSS styling
+### CSS styling
 ```vue
 <style>
 #app {
@@ -29,9 +30,9 @@ td.right {
 }
 </style>
 ```
-#### JavaScript logic
+### JavaScript logic
 The code uses Vue computed properties to output the teams' names, and the stats of the players who played, with the totals for both teams.
-The first API endpoint used returns daily NBA games to choose from. In the app we can also select from all of the seasons' games with a four digit identification number. After that we need another API request to get the staatistical details of the game chosen.
+The first API endpoint used returns daily NBA games to choose from. In the app we can also select from all of the seasons' games with a four digit identification number. After that we need another API request to get the statistical details of the game chosen.
 ```js
 const axios = require('axios')
 
@@ -147,7 +148,7 @@ export default {
   }
 }
 ```
-#### HTML template
+### HTML template
 ```vue
 <template>
   <div id="app">
@@ -239,4 +240,4 @@ export default {
   </div>
 </template>
 ```
-The application is ready to access at [Heroku](http://box-scores.herokuapp.com)
+The application is ready to access at [Heroku](http://box-scores.herokuapp.com).
