@@ -1,5 +1,5 @@
 ---
-title: "Display NBA boxscores with Vue.js"
+title: "Displaying NBA boxscores with Vue.js"
 date: 2020-06-02
 published: true
 tags: [vue.js, api]
@@ -239,9 +239,4 @@ export default {
   </div>
 </template>
 ```
-This post will show examples of embedding interactive charts produced using [Altair](https://altair-viz.github.io)
-
-## Example
-Below is a chart of the income and life expentancy of countries.
-
-<div id="altair-chart"></div>
+The application is ready to access at [Heroku](http://box-scores.herokuapp.com)
