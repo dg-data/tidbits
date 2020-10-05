@@ -1,3 +1,19 @@
-jupyter labextension install @jupyter-widgets/jupyterlab-manager qgrid
-git clone https://github.com/qzchenwl/qgrid  ~/qgrid.git  --depth 1 
-jupyter labextension install ~/qgrid.git/js
+conda activate notebook
+
+# Install QGrid for plain notebook-server.
+jupyter nbextension enable --py --sys-prefix qgrid
+jupyter nbextension enable --py widgetsnbextension
+
+# Install JupyterLab extensions for JupyterLab < 1.10 !
+jupyter labextension install --no-build @jupyter-widgets/jupyterlab-manager  # https://github.com/jupyter-widgets/ipywidgets/tree/master/packages/jupyterlab-manager
+jupyter labextension install --no-build jupyter-matplotlib
+#jupyter labextension install jupyterlab-jupytext  # https://github.com/mwouts/jupytext/issues/276
+jupyter labextension install qgrid2
+
+## Enable plugins tab, to view installed versions.
+#
+mkdir -p ~/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension
+echo '{
+    "enabled": true
+}
+' >> ~/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension/plugin.jupyterlab-settings
