@@ -1,10 +1,11 @@
+name: jupyter
 channels:
   - pyviz
   - conda-forge
   - defaults
 dependencies:
-  - jupyterlab
-  - qgrid
+  - jupyter
+  - pandas
   - geopandas
   - folium
   - altair
@@ -24,3 +25,4 @@ dependencies:
   - pip
   - pip:
       - jupyter-panel-proxy
+      - qgrid
