@@ -10,7 +10,7 @@ toc_sticky: true
 <div class="row">
     <div class="col-md-6">
 
-# Heading
+# Title
 
 This is an example image.
 
