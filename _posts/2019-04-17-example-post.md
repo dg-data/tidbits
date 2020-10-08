@@ -1,7 +1,8 @@
 ---
-titles_from_headings:
-  enabled:     true
-  strip_title: true
+markdown: kramdown
+kramdown:
+   syntax_highlighter_opts:
+      disable : true
 date: 2020-09-12
 published: true
 toc: false
