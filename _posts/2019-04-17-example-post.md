@@ -7,6 +7,9 @@ published: true
 toc: true
 toc_sticky: true
 ---
+<div class="row">
+    <div class="col-md-6">
+
 # Heading
 
 This is an example image.
@@ -16,3 +19,10 @@ This is an example image.
 Below, we show the spreading of the coronavirus.
 
 ![Wear a mask!](https://i.giphy.com/YMRTIe8Gikpw4lpewu.gif)
+  </div>
+  <div class="col-md-6">
+    {% include_relative charts/qgrid.html %}
+  </div>
+</div>
+
+
