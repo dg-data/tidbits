@@ -21,7 +21,7 @@ Below, we show the spreading of the coronavirus.
 ![Wear a mask!](https://i.giphy.com/YMRTIe8Gikpw4lpewu.gif)
   </div>
   <div class="col-md-6">
-    {% include_relative qgrid.html %}
+    {% include qgrid.html %}
   </div>
 </div>
 
