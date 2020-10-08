@@ -5,7 +5,7 @@ toc: false
 toc_sticky: true
 ---
 <div class="row">
-<div class="col-md-6">
+<div style="float: left; width: 50%;">
 
 # Title
 
@@ -17,7 +17,7 @@ Below, we show the spreading of the coronavirus.
 
 ![Wear a mask!](https://i.giphy.com/YMRTIe8Gikpw4lpewu.gif)
 </div>
-<div class="col-md-6">
+<div style="float: right; width: 50%;">
 {% include qgrid.html %}
 </div>
 </div>
