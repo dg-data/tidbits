@@ -3,6 +3,7 @@ date: 2020-09-12
 published: true
 toc: false
 toc_sticky: true
+classes: wide
 ---
 <div class="row">
 <div style="float: left; width: 50%;">
