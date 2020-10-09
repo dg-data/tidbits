@@ -5,6 +5,7 @@ toc: false
 excerpt: QGrid embedding
 classes: wide
 ---
+<!-- QGrid embedding -->
 <div class="row">
 <div style="float: left; width: 50%;">
 
