@@ -2,7 +2,7 @@
 date: 2020-09-12
 published: true
 toc: false
-toc_sticky: true
+excerpt: QGrid embedding
 classes: wide
 ---
 <div class="row">
