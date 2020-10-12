@@ -18,7 +18,7 @@
     <meta property="og:site_name" content="{{ site.title }}"/>
 
     <meta name="description" property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-    <meta name="author" property="og:author" content="{{ site.author | default: site.title }}" />
+    <meta name="author" property="og:author" content="{{ default: site.title }}" />
 
     <meta property="og:type" content="website" />
 
