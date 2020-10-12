@@ -1,0 +1,178 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+/* @import 'custom'; */
+
+.mdl-layout__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    width: 96%;
+    max-width: 60em;
+    margin: 3em auto;
+    font-size: 17px;
+    line-height: 1.6em;
+}
+
+code {
+    font-size: 0.9em;
+}
+.highlighter-rouge {
+    color: #2f6f9f;
+    background: #f4f4f6;
+}
+code.highlighter-rouge {
+    padding: 0 0.2em;
+}
+pre.highlight {
+    padding: 0.4em 0.8em;
+}
+
+.site-title a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.site-title a:hover {
+    color: #859900;
+}
+
+.site-header .mdl-layout__header-row {
+    padding-left: 64px;
+}
+
+.mdl-mini-footer__link-list .fab {
+    padding-right: 5px;
+}
+
+.mdl-card .title-link {
+    text-decoration: none;
+}
+
+.posts-list .mdl-card__actions {
+    display: flex;
+    box-sizing:border-box;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.mdl-card .meta {
+    color: #a9a9a9;
+    display: inline-block;
+    font-size: 14px;
+    margin: 0 8px 0 0;
+    text-transform: uppercase;
+
+    .tag-icon {
+        padding-left: 0.4em;
+    }
+}
+
+.card-with-image {
+    text-shadow: 2px 2px 3px #000;
+
+    h4,
+    a,
+    .mdl-card__supporting-text {
+        color: #fff;
+    }
+    .mdl-card__supporting-text {
+        width: auto;
+    }
+
+    .mdl-card__supporting-text.bottom-text {
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%);
+    }
+
+    .title-link {
+        padding-right: 3px;
+        padding-bottom: 3px;
+    }
+
+    .arrow {
+        float: right;
+    }
+}
+
+.content img {
+    max-width: 100%;
+}
+
+.content pre.highlight {
+    overflow-x: auto;
+}
+
+.toc {
+    display: inline-block;
+    border-left: 3px #ccc solid;
+    font-size: 0.8em;
+    margin: 0 0 2em 0;
+    ul {
+        list-style: none;
+        padding-left: 16px;
+        margin: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: none;
+        text-decoration: underline;
+    }
+    h1 {
+        padding-left: 16px;
+        margin: 0 0 0.2em 0;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #aaa;
+    }
+}
+
+.content figure {
+    text-align: center;
+    margin: 2em auto;
+}
+.content figure img {
+    margin: 0.6em 0.6em 0.6em 0;
+}
+
+.note-container {
+    padding: 30px 35px;
+    color: rgba(0,0,0,.54);
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    margin: 1em 0;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    .circle-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-grow: 0;
+        flex-shrink: 1;
+        margin-right: 30px;
+
+        .circle-container__circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 32px;
+            text-align: center;
+        }
+        .circle-icon {
+            font-size: 1.8em;
+            line-height: 64px;
+        }
+    }
+}
+
+video {
+    width: 100%;
+}
