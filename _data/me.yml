@@ -1,0 +1,42 @@
+name: My Name
+photo: https://i.morioh.com/2019/11/02/81dcf65d502f.jpg
+tagline: one-line summary of who I am
+email: someone@example.com
+phone: +36 70 4742421
+website: https://example.com
+location: Budapest, Hungary
+
+# Set the order of sections here.
+sections:
+  - experience
+  - education
+  - skills
+
+data:
+  education:
+    title: Education
+    items:
+      - 2016–present: |
+          BDGMF, Budapest:
+          Master's degree
+
+  experience:
+    title: Work Experience
+    items:
+      - current: |
+          - Chief Architect, Kft.
+      - 2015: Engineering a lot at [Takinfo](https://www.takinfo.hu)
+
+  skills:
+    title: Skills
+    text: |
+        You can add text, items, or both, or any. Text will be rendered before the itemized thing. You can put a list here:
+
+        - like
+        - this
+
+        Or anything else -- it's Markdown.
+    items:
+      - Real world example: |
+            [My website](https://github.com).
+
