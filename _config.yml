@@ -304,4 +304,4 @@ defaults:
       layout: single
     values:
       strip_title: true
-theme: jekyll-theme-tactile
+# theme: jekyll-theme-tactile
