@@ -227,6 +227,7 @@ plugins:
   - jemoji
   - jekyll-include-cache
   - jekyll-titles-from-headings
+  - jekyll-pdf
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
@@ -236,6 +237,7 @@ whitelist:
   - jemoji
   - jekyll-include-cache
   - jekyll-titles-from-headings
+  - jekyll-pdf
 # Archives
 #  Type
 #  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)
