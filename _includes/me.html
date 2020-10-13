@@ -17,9 +17,13 @@
 
         {% unless config.no_lines %}
             .cv-section-header { position: relative; }
-            .cv-section-title { font-style: italic; display: inline-block; background: #fff; padding-right: 1.2rem; }
-            .cv-section-title:after { position: absolute; top: 2.4rem; z-index: -1; content: ''; display: block; width: 100%; border-top: 1px solid; }
+            .cv-section-title { font-style: italic; display: inline-block; background: #fff !important; padding-right: 1.2rem; }
+            .cv-section-title:after { position: absolute; top: 3.4rem; z-index: -1; content: ''; display: block; width: 100%; border-top: 1px solid; }
         {% endunless %}
+
+        /* remove mailto: and similar links in the basic info section */
+        .cv-basic-info-item a[href]:after { content: none !important; }
+}
     </style>
 
     {% if config.download_links %}
@@ -35,10 +39,10 @@
     </header>
 
     <section class="cv-basic-info">
-        <span class="cv-basic-info-item"><i class="fa fa-envelope"></i>&nbsp;&nbsp;<a href="mailto:{{cv.email}}">{{cv.email}}</a></span>
-        <span class="cv-basic-info-item"><i class="fa fa-phone"></i>&nbsp;&nbsp;{{cv.phone}}</span>
-        <span class="cv-basic-info-item"><i class="fa fa-mouse-pointer"></i>&nbsp;&nbsp;<a href="{{cv.website}}">{{cv.website}}</a></span>
-        <span class="cv-basic-info-item"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;{{cv.location}}</span>
+        {% if cv.email %}<span class="cv-basic-info-item"><i class="fa fa-envelope"></i>&nbsp;&nbsp;<a href="mailto:{{cv.email}}">{{cv.email}}</a></span>{% endif %}
+        {% if cv.phone %}<span class="cv-basic-info-item"><i class="fa fa-phone"></i>&nbsp;&nbsp;{{cv.phone}}</span>{% endif %}
+        {% if cv.website %}<span class="cv-basic-info-item"><i class="fa fa-mouse-pointer"></i>&nbsp;&nbsp;<a href="{{cv.website}}">{{cv.website}}</a></span>{% endif %}
+        {% if cv.location %}<span class="cv-basic-info-item"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;{{cv.location}}</span>{% endif %}
     </section>
 
     {% for sec_id in cv.sections %}
@@ -50,7 +54,7 @@
             {{ section.text | markdownify }}
 
             {% for item in section.items %}
-                {% for keyvalue in item %} {%comment%} get the arbitrarily-named key {%endcomment%}
+                {% for keyvalue in item %} {%comment%} trick to get the arbitrarily-named key {%endcomment%}
                     <div class="cv-item">
                         <span class="cv-item-title">{{keyvalue[0]}}:</span>
                         <div class="cv-item-content">{{keyvalue[1] | markdownify}}</div>
@@ -61,4 +65,5 @@
 
         </section>
     {% endfor %}
+
 </div>
