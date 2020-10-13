@@ -2,6 +2,6 @@
 $(bundle show wkhtmltopdf-binary)/bin/wkhtmltopdf \
   --margin-top 1cm --margin-left 1cm \
   --margin-right 1cm --margin-bottom 1cm \
-  --print-media-type --dpi 300 \
+  --dpi 300 \
   --enable-local-file-access \
   _site/assets/index.html _site/me.pdf
