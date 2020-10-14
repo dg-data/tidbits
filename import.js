@@ -1,3 +1,6 @@
+var https = require('https'),
+    fs = require('fs');
+
 function download(url, dest) {
     return new Promise((resolve, reject) => {
       const request = https.get(url, response => {
@@ -24,4 +27,5 @@ function download(url, dest) {
       });
     });
 }
+
 download("https://onedrive.live.com/download?cid=F1A01879C77A02B3&resid=F1A01879C77A02B3%21107&authkey=APIgto_m31k5He0","./_data/test.yml")
