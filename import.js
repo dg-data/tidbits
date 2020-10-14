@@ -28,4 +28,4 @@ function download(url, dest) {
     });
 }
 
-download("https://onedrive.live.com/download?cid=F1A01879C77A02B3&resid=F1A01879C77A02B3%21107&authkey=APIgto_m31k5He0","./_data/test.yml")
+download("https://onedrive.live.com/download?cid=F1A01879C77A02B3&resid=F1A01879C77A02B3%21107&authkey=APIgto_m31k5He0","./_data/me.yml")
