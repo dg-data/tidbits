@@ -24,6 +24,7 @@ document.head.appendChild(file);
 //loadCSS("css/special.css");
 
 </script>
-
-{% include me.html %}
+{% if jekyll.environment == "netlify" %}
+    {% include me.html %}
+{% endif %}
 <div> {{ page.pdf_url }} </div>
