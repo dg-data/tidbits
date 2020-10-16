@@ -28,5 +28,5 @@ function download(url, dest) {
       });
     });
 }
-var url = 'https://onedrive.live.com/embed?cid=' + (lang === 'hu' ? 'F1A01879C77A02B3&resid=F1A01879C77A02B3%21110&authkey=AEmmKRWxLOHaEYU' : 'F1A01879C77A02B3&resid=F1A01879C77A02B3%21107&authkey=APIgto_m31k5He0')
+var url = 'https://onedrive.live.com/download?cid=' + (lang === 'hu' ? 'F1A01879C77A02B3&resid=F1A01879C77A02B3%21110&authkey=AEmmKRWxLOHaEYU' : 'F1A01879C77A02B3&resid=F1A01879C77A02B3%21107&authkey=APIgto_m31k5He0')
 download(url, './_data/me.yml')
