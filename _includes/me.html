@@ -22,7 +22,7 @@
             .cv-section-title:after { position: absolute; top: 3.4rem; z-index: -1; content: ''; display: block; width: 100%; border-top: 1px solid; }
         {% endunless %}
 
-        /* remove mailto: and similar links in the basic info section */
+        /* remove mailto: and similar links */
         .cv-basic-info-item a[href]:after { content: none !important; }
 }
     </style>
@@ -57,7 +57,7 @@
             {% for item in section.items %}
                 {% for keyvalue in item %} {%comment%} trick to get the arbitrarily-named key {%endcomment%}
                     <div class="cv-item">
-                        <span class="cv-item-title">{{keyvalue[0]}}:</span>
+                        <span class="cv-item-title">{{keyvalue[0]}}{{config.item_suffix}}</span>
                         <div class="cv-item-content">{{keyvalue[1] | markdownify}}</div>
                     </div>
 
