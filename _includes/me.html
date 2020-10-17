@@ -15,10 +15,10 @@
         .cv-item-content { padding-left: 40px; }
         .cv-item-content > ul { padding-left: 50px; margin: 0; }
         .cv-item-content em { color: #636c72; margin-left: 0.5rem; }
-
-        {% unless config.no_lines %}
+        
             .cv-section-header { position: relative; }
             .cv-section-title { font-style: italic; display: inline-block; background: #fff !important; padding-right: 1.2rem; }
+        {% unless config.no_lines %}
             .cv-section-title:after { position: absolute; top: 3.4rem; z-index: -1; content: ''; display: block; width: 100%; border-top: 1px solid; }
         {% endunless %}
 
@@ -45,7 +45,7 @@
         {% if cv.website %}<span class="cv-basic-info-item"><i class="fa fa-mouse-pointer"></i>&nbsp;&nbsp;<a href="{{cv.website}}">{{cv.website}}</a></span>{% endif %}
         {% if cv.location %}<span class="cv-basic-info-item"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;{{cv.location}}</span>{% endif %}
     </section>
-{% if config.no_lines %}<p>no lines</p>{% endif %}
+
     {% for sec_id in cv.sections %}
         {% assign section = cv.data[sec_id] %}
         <section class="cv-section" id="{{sec_id}}">
