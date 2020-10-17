@@ -278,9 +278,6 @@ titles_from_headings:
   strip_title: false
   collections: true
 
-me:
-  no_lines: true
-  item_suffix: ""
 # Defaults
 defaults:
   # _posts
