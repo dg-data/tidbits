@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "sunrise" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin: "sunrise" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum"
 
 # Site Settings
 locale: "en-US"
@@ -109,7 +109,7 @@ author:
   avatar: # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio: "Software Engineering"
   location: "Budapest"
-  email:
+  email: "dog@eclipso.eu"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -278,7 +278,9 @@ titles_from_headings:
   strip_title: false
   collections: true
 
-
+me:
+  no_lines: true
+  item_suffix: ""
 # Defaults
 defaults:
   # _posts
