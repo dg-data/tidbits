@@ -45,7 +45,7 @@
         {% if cv.website %}<span class="cv-basic-info-item"><i class="fa fa-mouse-pointer"></i>&nbsp;&nbsp;<a href="{{cv.website}}">{{cv.website}}</a></span>{% endif %}
         {% if cv.location %}<span class="cv-basic-info-item"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;{{cv.location}}</span>{% endif %}
     </section>
-
+{% if config.no_lines %}<p>no lines</p>{% endif %}
     {% for sec_id in cv.sections %}
         {% assign section = cv.data[sec_id] %}
         <section class="cv-section" id="{{sec_id}}">
