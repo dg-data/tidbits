@@ -108,10 +108,9 @@ qgrid_df
 {% include qgrid.html %}
 </div>
 </div>
-<div>
-</div>
+
 ***
-<div>
+<div style="clear: both;">
 Finally we can save the edited data to memory and write to file.
 </div>
 ```python
