@@ -1,5 +1,5 @@
 ---
-title: Panel dashboard example
+title: Basic Panel dashboard example
 titles_from_headings:
   strip_title: true
 altair-loader:
