@@ -38,6 +38,6 @@
     {% else %}
       {% assign myexcerpt = post.excerpt | markdownify | strip_html | truncate: 160 %}
     {% endif %}
-    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.myexcerpt }}</p>{% endif %}
+    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ myexcerpt }}</p>{% endif %}
   </article>
 </div>
