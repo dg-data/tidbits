@@ -110,8 +110,9 @@ qgrid_df
 </div>
 
 ***
+<div>
 Finally we can save the edited data to memory and write to file.
-
+</div>
 ```python
 def read_jobs(file):
     try:
