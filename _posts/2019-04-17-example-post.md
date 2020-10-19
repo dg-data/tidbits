@@ -5,14 +5,6 @@ toc: false
 classes: wide
 ---
 <!-- QGrid embedding -->
-<div class="row">
-<div style="float: right; width: 50%; display: flex; flex-direction: column; align-items: stretch; font-size:12px; background-color: white">
-{% include widget.html %}
-</div>
-<div style="float: left; width: 50%;">
-{% include qgrid.html %}
-</div>
-</div>
 
 ## Cleaning data with QGrid
 
@@ -107,6 +99,16 @@ df = site_indeed(min_page=1, max_page=2)
 qgrid_df = qgrid.show_grid(df, column_definitions={'index': {'maxWidth': 0, 'minWidth':0, 'width':0}, 'Page': {'maxWidth':0, 'minWidth':0, 'width':0}}, show_toolbar=True)
 qgrid_df
 ```
+
+<div class="row">
+<div style="float: right; width: 50%; display: flex; flex-direction: column; align-items: stretch; font-size:12px; background-color: white">
+{% include widget.html %}
+</div>
+<div style="float: left; width: 50%;">
+{% include qgrid.html %}
+</div>
+</div>
+
 Finally we can save the edited data to memory and write to file.
 
 ```python
