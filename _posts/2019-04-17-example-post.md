@@ -1,4 +1,5 @@
 ---
+title: Cleaning data with QGrid
 date: 2020-10-12
 published: true
 toc: false
@@ -7,8 +8,6 @@ classes: wide
 
 
 <!-- QGrid embedding -->
-
-## Cleaning data with QGrid
 
 Qgrid is a Jupyter notebook widget which allows you to explore data with intuitive scrolling, sorting, and filtering controls, as well as edit DataFrames like in an Excel-like table.
 The next example demonstrate how to explore data from web scraping with QGrid.
