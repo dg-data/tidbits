@@ -1,7 +1,7 @@
 ---
-title: "Example: Embedding Hvplot Chart"
+title: "Example: Embedding Hvplot"
 date: 2020-07-12
-published: true
+published: false
 tags: [dataviz, hvplot, holoviews]
 excerpt: "Embedding interactive chart on static page using Jekyll."
 hv-loader:
