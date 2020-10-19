@@ -1,9 +1,11 @@
 ---
-date: 2020-09-12
+date: 2020-10-12
 published: true
 toc: false
 classes: wide
 ---
+
+
 <!-- QGrid embedding -->
 
 ## Cleaning data with QGrid
