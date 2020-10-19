@@ -93,7 +93,7 @@ def get_current(event, qgrid_widget):
 qgrid.on(['selection_changed'], get_current)
 ```
  Now it's time to start scraping and load the data to clean in the grid manually.
- The HTML field in the row selected is visible in the other window.
+ The HTML field in the row selected is visible in the other window. (In the real grid in JupyterLab it changes as we browse).
 ```python
 df = site_indeed(min_page=1, max_page=2)
 qgrid_df = qgrid.show_grid(df, column_definitions={'index': {'maxWidth': 0, 'minWidth':0, 'width':0}, 'Page': {'maxWidth':0, 'minWidth':0, 'width':0}}, show_toolbar=True)
@@ -109,6 +109,7 @@ qgrid_df
 </div>
 </div>
 
+***
 Finally we can save the edited data to memory and write to file.
 
 ```python
