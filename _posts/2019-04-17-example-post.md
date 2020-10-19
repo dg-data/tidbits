@@ -1,4 +1,3 @@
-
 ---
 date: 2020-09-12
 published: true
