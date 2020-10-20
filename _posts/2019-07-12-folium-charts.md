@@ -1,6 +1,6 @@
 ---
-title: "Embedding interactive Folium map into a Bokeh application"
-date: 2020-07-12
+title: "Embedding interactive Folium map into a chart component"
+date: 2020-09-12
 tags: [dataviz, folium]
 folium-loader:
   folium-chart-1: ["charts/covidmap.html", "800"]
