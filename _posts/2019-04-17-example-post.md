@@ -4,7 +4,7 @@ date: 2020-10-12
 published: true
 toc: false
 classes: wide
-summary: Display and edit data from the web easily using Python.
+summary: Display and edit web scraped data easily using Python.
 ---
 
 
