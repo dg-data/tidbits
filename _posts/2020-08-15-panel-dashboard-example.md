@@ -6,6 +6,7 @@ altair-loader:
   altair-chart-2: "charts/panelAltair.json"
 hv-loader:
   hv-chart-1: ["charts/panelBokeh.html","440"]
+classes: wide
 ---
 <!---->## Dashboard with Panel using Datashader and Altair (Python libraries)
 
