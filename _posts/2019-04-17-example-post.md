@@ -113,7 +113,7 @@ qgrid_df
 
 ***
 <div style="clear: both;">
-Finally we can save the edited data to memory and write to file.
+Finally we can save the edited data to memory and write it to file.
 </div>
 ```python
 def read_jobs(file):
