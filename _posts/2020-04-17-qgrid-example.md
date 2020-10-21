@@ -4,6 +4,7 @@ date: 2020-10-12
 published: true
 toc: false
 classes: wide
+tags: [qgrid, python]
 summary: Display and edit web scraped data easily using Python.
 ---
 
