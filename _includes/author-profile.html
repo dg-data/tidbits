@@ -73,7 +73,7 @@
         <li>
           <a href="mailto:{{ author.email }}">
             <meta itemprop="email" content="{{ author.email }}" />
-            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> {{ default: "Contact" | site.data.ui-text[site.locale].email_label }}
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> {{ nonexistent | default: "Contact" | site.data.ui-text[site.locale].email_label }}
           </a>
         </li>
       {% endif %}
