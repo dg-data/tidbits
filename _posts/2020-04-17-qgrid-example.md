@@ -22,27 +22,44 @@ import http.cookiejar
 import qgrid
 import ipywidgets as widgets
 from IPython.core.display import display, HTML
+from abc import ABCMeta, abstractmethod
 ```
 
 ```python
-# For opening pages we need cookie processing
-cookie = http.cookiejar.CookieJar()
-handler = urllib.request.HTTPCookieProcessor(cookie)
-opener = urllib.request.build_opener(handler)
+# First define the abstract base class for the sites to collect data from
+class Site:
+    __metaclass__ = ABCMeta
+    __cookie = http.cookiejar.CookieJar()
+    __handler = urllib.request.HTTPCookieProcessor(__cookie)
+    opener = urllib.request.build_opener(__handler)
+    
+    @abstractmethod
+    def Crawl(self, query, min_page=0, max_page=1):
+        pass
 
+class Crawler:
+    def SetTarget(self, target):
+        self.__target = target
+        
+    def GetData(self, min_page, max_page, query=None):
+        if query is None:
+            return self.__target.Crawl(min_page=min_page, max_page=max_page)
+        else:
+            return self.__target.Crawl(query, min_page, max_page)
 ```
 
 
-The site we will collect data from is indeed.com, which contains job listings. In the URL parameters we define a query to filter results, and set the limit of 30 jobs per page.
+The sites we will collect data from contain job listings. For every site there is a derived class which implements the method from the base class. In the URL parameters we define a query to filter results, and set the limit of 30 jobs per page.
 Then in a loop our function scrapes data between pages *min_page* and *max_page*. It stores the HTML source of job descriptions also to browse later. The result is a pandas dataframe.
 ```python
-def site_indeed(min_page=0, max_page=1, query='(IT+or+adatb%C3%A1zis+or+data+or+fejleszt%C5%91+or+SQL+or+Python+or+developer+or+web+or+scraping)'):
+class Inded(Site):
+    def Crawl(self, query='(IT+or+adatb%C3%A1zis+or+data+or+fejleszt%C5%91+or+SQL+or+Python+or+developer+or+web+or+scraping)', min_page=0, max_page=1):
     url = 'https://hu.indeed.com/jobs?q=' + query +'&l=Budapest&limit=30&sr=directhire'
-    data = []
+    self.__data = []
     for p in range (min_page, max_page):
         param = '&start=' + str(p * 30)
         param = '' if p == 0 else param
-        soup = BeautifulSoup(opener.open(url + param).read(), 'html.parser').find_all('h2', class_='title')
+        soup = BeautifulSoup(self.opener.open(url + param).read(), 'html.parser').find_all('h2', class_='title')
         for j in soup:
             title = j.find_next('a').get_text(strip=True)
             try:
@@ -55,18 +72,53 @@ def site_indeed(min_page=0, max_page=1, query='(IT+or+adatb%C3%A1zis+or+data+or+
                 redirect = opener.open('https://hu.indeed.com/rc/clk?jk=' + j.parent.get('data-jk')).url
             except:
                 redirect = None
-            data.append([title, company, summary, page, redirect])
-    if len(data) > 0:
-        df = pd.DataFrame(data)
+            self.__data.append([title, company, summary, page, redirect])
+    if len(self.__data) > 0:
+        df = pd.DataFrame(self.__data)
         df.columns = ['Title','Company','Summary','Page', 'URL']
         return df
 ```
+
+```python
+class Joble(Site):
+    def Crawl(self, query='SQL+Python', min_page=0, max_page=1):
+        url = 'https://hu.jooble.org/SearchResult?ukw={}&rgns=Budapest'
+        self.__data = []
+        for p in range (min_page, max_page):
+            param = '&p=' + str(p * 1)
+            param = '' if p == 0 else param
+            soup = BeautifulSoup(self.opener.open(url.format(query) + param).read(), 'html.parser').find_all('div', class_='top-wr')
+            for job in soup:
+                link = job.find_next('a').get('href')
+                title = job.find_next('h2', class_='position').get_text()
+                try:
+                    company = job.find_next('span', class_='company-name').get_text(strip=True)
+                except:
+                    company = None
+                summary = job.find_next('span', class_='description').get_text(strip=True)
+                page, redirect = (None, None)
+                if link.split('.')[2][4] == 'd':
+                    page = BeautifulSoup(self.opener.open(link).read(), 'html.parser').find('div', id='root')
+                else:
+                    try:
+                        redirect = self.opener.open(link).url
+                    except:
+                        redirect = None
+                if page is None:
+                    red = BeautifulSoup(self.opener.open(redirect).read(), 'html.parser')
+                    page = red.find('div', id='root') if red.find('div', id='root') is not None \
+                        else BeautifulSoup(self.opener.open(red.find('a', id='aGo').get('href')).read(), 'html.parser')
+
+                [x.extract() for x in page(["script", "style", "svg", "ins", "use", "button", "meta", "link"])]
+                [x.extract() for x in page.select('div[class=""]')]
+                self.__data.append([title, company, summary, page, redirect])
+
+        if len(self.__data) > 0:
+            df = pd.DataFrame(self.__data)
+            df.columns = ['Title','Company','Summary','Page', 'URL']
+            return df
+```
 Now we have the data to load into the grid after setting some options.
-
-
-
-
-
 
 ```python
 qgrid.set_grid_option('forceFitColumns', False)
@@ -95,10 +147,12 @@ def get_current(event, qgrid_widget):
         output_area.clear_output(wait=True)
 qgrid.on(['selection_changed'], get_current)
 ```
- Now it's time to start scraping and load the data to clean in the grid manually.
+ This way the target is exchangeable easily. Now it's time to start scraping and load the data to clean in the grid manually.
  The HTML field in the row selected is visible in the other window. (In the real grid in JupyterLab it changes as we browse).
 ```python
-df = site_indeed(min_page=1, max_page=2)
+spider = Crawler()
+spider.SetTarget(Joble())
+df = spider.GetData(min_page=1, max_page=2)
 qgrid_df = qgrid.show_grid(df, column_definitions={'index': {'maxWidth': 0, 'minWidth':0, 'width':0}, 'Page': {'maxWidth':0, 'minWidth':0, 'width':0}}, show_toolbar=True)
 qgrid_df
 ```
