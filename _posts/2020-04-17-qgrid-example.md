@@ -54,29 +54,29 @@ Then in a loop our function scrapes data between pages *min_page* and *max_page*
 ```python
 class Inded(Site):
     def Crawl(self, query='(IT+or+adatb%C3%A1zis+or+data+or+fejleszt%C5%91+or+SQL+or+Python+or+developer+or+web+or+scraping)', min_page=0, max_page=1):
-    url = 'https://hu.indeed.com/jobs?q=' + query +'&l=Budapest&limit=30&sr=directhire'
-    self.__data = []
-    for p in range (min_page, max_page):
-        param = '&start=' + str(p * 30)
-        param = '' if p == 0 else param
-        soup = BeautifulSoup(self.opener.open(url + param).read(), 'html.parser').find_all('h2', class_='title')
-        for j in soup:
-            title = j.find_next('a').get_text(strip=True)
-            try:
-                company = j.find_next('span', class_='company').get_text(strip=True)
-            except:
-                company = None
-            summary = j.find_next('div', class_='summary').get_text(strip=True)
-            page = BeautifulSoup(opener.open('https://hu.indeed.com/viewjob?jk=' + j.parent.get('data-jk')).read(), 'html.parser').find('div', class_='jobsearch-jobDescriptionText')
-            try:
-                redirect = opener.open('https://hu.indeed.com/rc/clk?jk=' + j.parent.get('data-jk')).url
-            except:
-                redirect = None
-            self.__data.append([title, company, summary, page, redirect])
-    if len(self.__data) > 0:
-        df = pd.DataFrame(self.__data)
-        df.columns = ['Title','Company','Summary','Page', 'URL']
-        return df
+        url = 'https://hu.indeed.com/jobs?q=' + query +'&l=Budapest&limit=30&sr=directhire'
+        self.__data = []
+        for p in range (min_page, max_page):
+            param = '&start=' + str(p * 30)
+            param = '' if p == 0 else param
+            soup = BeautifulSoup(self.opener.open(url + param).read(), 'html.parser').find_all('h2', class_='title')
+            for j in soup:
+                title = j.find_next('a').get_text(strip=True)
+                try:
+                    company = j.find_next('span', class_='company').get_text(strip=True)
+                except:
+                    company = None
+                summary = j.find_next('div', class_='summary').get_text(strip=True)
+                page = BeautifulSoup(opener.open('https://hu.indeed.com/viewjob?jk=' + j.parent.get('data-jk')).read(), 'html.parser').find('div', class_='jobsearch-jobDescriptionText')
+                try:
+                    redirect = opener.open('https://hu.indeed.com/rc/clk?jk=' + j.parent.get('data-jk')).url
+                except:
+                    redirect = None
+                self.__data.append([title, company, summary, page, redirect])
+        if len(self.__data) > 0:
+            df = pd.DataFrame(self.__data)
+            df.columns = ['Title','Company','Summary','Page', 'URL']
+            return df
 ```
 
 ```python
