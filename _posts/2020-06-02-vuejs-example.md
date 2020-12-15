@@ -152,6 +152,7 @@ export default {
 }
 ```
 ### HTML template
+{%raw%}
 ```vue
 <template>
   <div id="app">
@@ -243,6 +244,7 @@ export default {
   </div>
 </template>
 ```
+{%endraw%}
 
 In Django the template has two parts, a form to select the game, and a table, which is rendered separately after each API call. The main function for transforming the data in Python is a little bit simpler.
 ```python
