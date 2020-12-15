@@ -1,18 +1,21 @@
 ---
-title: "Displaying NBA boxscores with Vue.js"
+title: "Displaying tabular data with Vue.js or Django"
 date: 2020-07-02
 published: true
-tags: [vue.js, api]
+tags: [vue.js, api, django]
 toc: false
 toc_sticky: true
 classes: wide
 ---
-This example shows how to fetch data from an API endpoint in Vue.js apps by using axios http library and display results. The API returns details about the NBA game selected which is presented in traditional box format. The app itself a single file component with
+This example shows how to fetch data from an API endpoint in Vue.js apps by using axios http library and display results. The API returns details about the NBA game selected which is presented in traditional box format. Because the format is quite static, and there is no need to use much interactivity, we can implement the same architecture in Django. Django is a Python web framework with rapid development and clean, pragmatic design.
+But first with Vue.js, the app itself a single file component with
 - HTML template
 - JavaScript logic
 - and CSS styling.
 
-When webpack, which is a static module bundler for modern SPAs processes the app, it builds modules in one or more bundles with a single command to run the entire application. Below is the code in Vue.js.
+When webpack, which is a static module bundler for modern SPAs processes the app, it builds modules in one or more bundles with a single command to run the entire application.
+Because the format is quite static, 
+Below is the code in Vue.js.
 
 ### CSS styling
 ```vue
@@ -240,4 +243,54 @@ export default {
   </div>
 </template>
 ```
-The application is ready to access at [Heroku](http://box-scores.herokuapp.com).
+
+In Django the template has two parts, a form to select the game, and a table, which is rendered separately after each API call. The main function for transforming the data in Python is a little bit simpler.
+```python
+import json
+import requests, datetime
+
+def get_stats(record):
+    total = True if len(record) == 27 else False
+    result = ()
+    if not total:
+        result = result + (record['fn'] + ' ' + record['ln'], str(record['min']) + ':' + ('00' + str(record['sec']))[-2:],)
+
+    return result + (record['fgm'], record['fga'], record['tpm'], record['tpa'], record['ftm'], record['fta'],
+      str(record['reb']) + (' (' + str(record['oreb']) + ')' if record['oreb'] > 0 else ''),
+      record['ast'], record['stl'], record['blk'], record['tov'], record['fgm'] * 2 + record['tpm'] + record['ftm'])
+
+def get_data(team):
+    data = []
+    for player in team['pstsg']:
+        if player['totsec'] > 0:
+            data.append(get_stats(player))
+
+    return data
+
+def get_gamedetail(season, game, gameID):
+    day = datetime.datetime.today()
+    # calculate start of the season
+    yy = day.year - (0 if day.month > 9 else 1) - int(season) - 2000
+    gameID = gameID if gameID > '' else '004' + str(yy) + '0' + game
+    url = ('https://cors-anywhere.herokuapp.com/http://data.nba.net/v2015/json/mobile_teams/nba/20' +
+      str(yy) + '/scores/gamedetail/' + gameID + '_gamedetail.json')
+    r = requests.get(url, headers={"X-Requested-With": "XMLHttpRequest"})
+    results = r.json()
+    try:
+        results['g']
+    except KeyError:
+        return({'error': True})
+    hls = results['g']['hls']
+    vls = results['g']['vls']
+    records = {'home': get_data(hls), 'visitor': get_data(vls)}
+    home = hls['ta']
+    visitor = vls['ta']
+
+    return({'home': home, 'visitor': visitor,
+            'columns': ['PLAYER', 'MIN', 'FGM', 'FGA', 'TPM', 'TPA', 'FTM', 'FTA', 'REB', 'AST', 'STL', 'BLK', 'TOV', 'PTS'],
+            'aligned': [0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 'hPlayers': records['home'], 'vPlayers': records['visitor'],
+            'hTotals': (home, 'TOTALS') + get_stats(hls['tstsg']), 'vTotals': (visitor, 'TOTALS') + get_stats(vls['tstsg']),
+            'success': True})
+```
+I think Vue.js is more flexible while Django has more restricted, but more straightforward at the same time.
+The applications are ready to access both at [Heroku](http://box-scores.herokuapp.com) and [PythonAnywhere](http://boxscores.pythonanywhere.com).
