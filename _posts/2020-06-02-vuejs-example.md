@@ -8,7 +8,7 @@ toc_sticky: true
 classes: wide
 ---
 This example shows how to fetch data from an API endpoint in Vue.js apps by using axios http library and display results. The API returns details about the NBA game selected which is presented in traditional box format. Because the format is quite static, and there is no need to use much interactivity, we can implement the same architecture in Django. Django is a Python web framework with rapid development and clean, pragmatic design.
-But first with Vue.js, the app itself a single file component with
+But first in Vue.js, the app itself a single file component with
 - HTML template
 - JavaScript logic
 - and CSS styling.
