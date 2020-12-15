@@ -50,10 +50,10 @@ class Crawler:
 
 
 The sites we will collect data from contain job listings. For every site there is a derived class which implements the method from the base class. In the URL parameters we define a query to filter results, and set the limit of 30 jobs per page.
-Then in a loop our function scrapes data between pages *min_page* and *max_page*. It stores the HTML source of job descriptions also to browse later. The result is a pandas dataframe.
+Then in a loop our function scrapes data between pages *min_page* and *max_page*. It stores the HTML source of job descriptions also to browse later. The result is a **pandas** dataframe.
 ```python
 class Inded(Site):
-    def Crawl(self, query='(IT+or+adatb%C3%A1zis+or+data+or+fejleszt%C5%91+or+SQL+or+Python+or+developer+or+web+or+scraping)', min_page=0, max_page=1):
+    def Crawl(self, query='(IT+or+adatb%C3%A1zis+or+data+or+fejleszt%C5%91+or+SQL+or+Python+or+developer+or+web)', min_page=0, max_page=1):
         url = 'https://hu.indeed.com/jobs?q=' + query +'&l=Budapest&limit=30&sr=directhire'
         self.__data = []
         for p in range (min_page, max_page):
@@ -67,9 +67,11 @@ class Inded(Site):
                 except:
                     company = None
                 summary = j.find_next('div', class_='summary').get_text(strip=True)
-                page = BeautifulSoup(opener.open('https://hu.indeed.com/viewjob?jk=' + j.parent.get('data-jk')).read(), 'html.parser').find('div', class_='jobsearch-jobDescriptionText')
+                data_jk = j.parent.get('data-jk')
+                page = BeautifulSoup(opener.open('https://hu.indeed.com/viewjob?jk=' + data_jk).read(),
+                    'html.parser').find('div', class_='jobsearch-jobDescriptionText')
                 try:
-                    redirect = opener.open('https://hu.indeed.com/rc/clk?jk=' + j.parent.get('data-jk')).url
+                    redirect = opener.open('https://hu.indeed.com/rc/clk?jk=' + data_jk).url
                 except:
                     redirect = None
                 self.__data.append([title, company, summary, page, redirect])
