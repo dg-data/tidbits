@@ -14,7 +14,6 @@ But first in Vue.js, the app itself a single file component with
 - and CSS styling.
 
 When webpack, which is a static module bundler for modern SPAs processes the app, it builds modules in one or more bundles with a single command to run the entire application.
-Because the format is quite static, 
 Below is the code in Vue.js.
 
 ### CSS styling
