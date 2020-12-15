@@ -259,6 +259,7 @@ def get_stats(record):
       str(record['reb']) + (' (' + str(record['oreb']) + ')' if record['oreb'] > 0 else ''),
       record['ast'], record['stl'], record['blk'], record['tov'], record['fgm'] * 2 + record['tpm'] + record['ftm'])
 
+
 def get_data(team):
     data = []
     for player in team['pstsg']:
@@ -266,6 +267,7 @@ def get_data(team):
             data.append(get_stats(player))
 
     return data
+
 
 def get_gamedetail(season, game, gameID):
     day = datetime.datetime.today()
@@ -292,5 +294,5 @@ def get_gamedetail(season, game, gameID):
             'hTotals': (home, 'TOTALS') + get_stats(hls['tstsg']), 'vTotals': (visitor, 'TOTALS') + get_stats(vls['tstsg']),
             'success': True})
 ```
-I think Vue.js is more flexible while Django has more restricted, but more straightforward at the same time.
+I think Vue.js is more flexible while Django has more restrictions, but it is more straightforward at the same time. The underlying templates to produce the tables are similar whatever the implementation is.
 The applications are ready to access both at [Heroku](http://box-scores.herokuapp.com) and [PythonAnywhere](http://boxscores.pythonanywhere.com).
