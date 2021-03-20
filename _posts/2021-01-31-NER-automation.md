@@ -48,7 +48,7 @@ def english(text):
         return(loads(request.text)[0]["translations"][0]["text"])
     return(text)
 ```
-Read and prepare data.
+When the data is prepared and ready for geoparsing, we load the pretrained model. Here comes the magic part: the model recognizes the toponyms (proper names of places, also known as place name or geographic name) from text.
 ```python
 with open("bkk.jsonl", "rb") as file:
     for row in json_lines.reader(file):
@@ -63,13 +63,14 @@ for text in news:
         [c.lower() if index != 1 and c.isupper() else c for index, c in enumerate(
         x.group(0))]), text).replace('+', '').replace('wharf', 'Square').replace('sq','Sq').replace('str','Str').replace('bou','Bou').replace('roa','Roa'))))
 ```
+We load the recognized locations into a dataframe.
 ```python
 df = pd.DataFrame({'location': []})
 for row in topos:
     df = df.append({'location': row}, ignore_index='True')
 df['extracted'] = df.location.apply(lambda x: [y['location_name'] for y in x if len(y['location_name']) > 5][0])
 ```
-Plot the time series of the selected countries using Bokeh.
+By free geolocator services the dataframe is completed with the exact coordinates for each locations.
 ```python
 def geocode_locations(processed_df, city, region, address_col):
     # creating address with city and region
@@ -90,17 +91,7 @@ def geocode_locations(processed_df, city, region, address_col):
         
     return processed_df
 ```
-A choropleth map displays divided regions that are coloured in relation to a numeric variable. It allows to study how a variable evolutes along a territory. This time the variable is the number of new COVID cases in Hungary per 100 000 population. The size of the circle inside each region also indicates the value of this variable. The map is not about the absolute numbers but the proportions and the evolution of the outbreak.
-{: style="text-align: justify" }
-```python
-def prepare_sdf(processed_df):
-    processed_df = processed_df.query('point == point')
-    sdf = processed_df.reset_index(drop=True)
-    sdf['geo_x_y'] = sdf['point'].apply(lambda x: (str(x[1]) if x is not None else '') + ',' + str(x[0]) if x is not None else '')
-    sdf = pd.DataFrame.spatial.from_df(sdf, address_column='geo_x_y') # adding geometry to the dataframe
-    sdf.drop(['location','geo_x_y','point'], axis=1, inplace=True)
-    return sdf
-```
+Finally a layer of markers show on the map where accidents happend.
 ```python
 processed_df = geocode_locations(df.tail(100), city='Budapest', region='Hungary', address_col='extracted')
 m = Map(center=(47.51, 19.04), zoom=11.5, basemap=basemaps.CartoDB.Positron)
@@ -114,13 +105,10 @@ for idx in processed_df.index:
         radius=5)
         marks.add_layer(mark)
 m.add_layer(marks)
-refresh_button = Button(description='Refresh')
+refresh_button = Button(description='Start refreshing...')
 m.add_control(WidgetControl(widget=refresh_button, position='bottomright'))
 refresh_button.on_click(refresh_marks)
 widget.close()
 m
 ```
-The chart below is a static snapshot, the live version available on Binder. _(It starts slowly because of preparing the environment for running)_.
-```python
-app.servable()
-```
+The demo is available as a Binder app. _(It starts slowly because of preparing the environment for running)_.
