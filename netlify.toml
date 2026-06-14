@@ -1,6 +1,7 @@
 [build]
-  command = "bundle exec jekyll build"
+  command = "node ./import.js hu && bundle exec jekyll build && chmod 777 page2pdf && ./page2pdf"
   publish = "_site"
+
 [build.environment]
   RUBY_VERSION = "3.3.7"
-  JEKYLL_ENV = "production"
+  JEKYLL_ENV = "netlify"
