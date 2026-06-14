@@ -12,8 +12,8 @@ PATH
       jemoji (~> 0.10)
 
 GIT
-  remote: https://github.com/sdogruyol/pathutil.git
-  revision: 6ab144a7706c2bc5fa0dfdfa498e94ff66e944c6
+  remote: https://github.com/dg-data/pathutil.git
+  revision: c5dc662b31e002df24daa556cf4cffb2d511aec0
   specs:
     pathutil
 
