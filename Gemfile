@@ -1,5 +1,4 @@
 source "https://rubygems.org"
-ruby '3.1.4'
 gemspec
 gem 'jekyll-titles-from-headings'
 gem 'wkhtmltopdf-binary', '0.12.6.5'
