@@ -28,5 +28,6 @@ function download(url, dest) {
       });
     });
 }
-var url = 'https://onedrive.live.com/download?cid=' + (lang === 'hu' ? 'F1A01879C77A02B3&resid=F1A01879C77A02B3%21110&authkey=AEmmKRWxLOHaEYU' : 'F1A01879C77A02B3&resid=F1A01879C77A02B3%21107&authkey=APIgto_m31k5He0')
+var url = 'https://my.microsoftpersonalcontent.com/personal/b4e529b179b5976d/_layouts/15/download.aspx?share=' +
+    (lang === 'hu' ? 'IQQKO54HqiNURaA0mqDd91lZAd5o-JhwFzbp23zH7pDs0_4' : 'F1A01879C77A02B3&resid=F1A01879C77A02B3%21107&authkey=APIgto_m31k5He0')
 download(url, './_data/me.yml')
