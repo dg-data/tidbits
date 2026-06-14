@@ -1,5 +1,5 @@
 [build]
-  command = "apt-get install -y wkhtmltopdf && node ./import.js hu && bundle exec jekyll build && chmod 777 page2pdf && ./page2pdf"
+  command = "/tmp/wkhtmltox/usr/bin/wkhtmltopdf && node ./import.js hu && bundle exec jekyll build && chmod 777 page2pdf && ./page2pdf"
   publish = "_site"
 
 [build.environment]
