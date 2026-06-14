@@ -54,7 +54,7 @@ GEM
       kramdown (~> 1.14)
       liquid (~> 4.0)
       mercenary (~> 0.3.3)
-#      pathutil (~> 0.9)
+      pathutil
       rouge (>= 1.7, < 4)
       safe_yaml (~> 1.0)
     jekyll-data (1.0.0)
