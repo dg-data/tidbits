@@ -1,5 +1,5 @@
 [build]
-  command = "curl -sL https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.jammy_amd64.deb -o /tmp/wk.deb && dpkg -x /tmp/wk.deb /tmp/wkhtmltox && node ./import.js hu && bundle exec jekyll build && chmod 777 page2pdf && ./page2pdf"
+  command = "node ./import.js hu && bundle exec jekyll build && node page2pdf.js"
   publish = "_site"
 
 [build.environment]
