@@ -1,5 +1,5 @@
 [build]
-  command = "node ./import.js hu && bundle exec jekyll build && node page2pdf.js"
+  command = "node ./import.js hu && cat _data/me.yml && bundle exec jekyll build && node page2pdf.js"
   publish = "_site"
 
 [build.environment]
