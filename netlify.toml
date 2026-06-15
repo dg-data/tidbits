@@ -5,3 +5,4 @@
 [build.environment]
   RUBY_VERSION = "3.3.7"
   JEKYLL_ENV = "netlify"
+  NODE_VERSION = "20"
